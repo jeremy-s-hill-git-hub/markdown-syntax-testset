@@ -8,19 +8,38 @@ GFM 规范内的扩展见 `gfm-ext.md`，与 CommonMark 的差异见 `gfm-edge.m
 
 ## 数学公式
 
-数学公式用美元符号界定：行内用单个美元符包裹，行间用双美元符独占一行。GitHub 用数学排版引擎渲染，不支持的编辑器会原样显示美元符。
+GitHub 用 MathJax 渲染 LaTeX 数学表达式，在议题、讨论、拉取请求、Wiki 与 `.md` 文件中均可用。行内用单个美元符包裹（表达式与 Markdown 冲突时用美元符加反引号），行间用双美元符独占一行或 `math` 围栏代码块；美元符本身需转义。
 
-T:行内公式 | 源 GitHub Docs（数学）  
+T:行内公式 | 源 GitHub Docs（数学表达式）  
 预期 渲染为行内数学排版，或原样显示 | 流行度 A
 
 The mass-energy relation is $E = mc^2$ written inline.
 
-T:行间公式 | 源 GitHub Docs（数学）  
+T:行内公式（反引号保护） | 源 GitHub Docs（数学表达式）  
+预期 与普通行内公式渲染一致 | 流行度 B
+
+The same relation uses the protected form $`E = mc^2`$ when it conflicts with Markdown.
+
+T:行间公式（双美元符） | 源 GitHub Docs（数学表达式）  
 预期 公式独占一行并居中排版 | 流行度 A
 
 The display formula follows:
 
 $$\int_0^1 x^2 \, dx = \frac{1}{3}$$
+
+T:行间公式（math 围栏） | 源 GitHub Docs（数学表达式）  
+预期 与双美元符写法渲染结果相同 | 流行度 B
+
+The same display formula in a code fence:
+
+```math
+\int_0^1 x^2 \, dx = \frac{1}{3}
+```
+
+T:美元符号转义 | 源 GitHub Docs（数学表达式）  
+预期 转义的美元符按普通符号显示，不破坏公式 | 流行度 C
+
+The price is <span>$</span>100, and the formula $100/2$ still renders.
 
 ## 脚注
 
@@ -175,11 +194,11 @@ T:引用块内的围栏 | 源 结构组合
 >   A --> B
 > ```
 
-## 折叠详情
+## 折叠区块
 
-GitHub 支持用原始 HTML 的折叠标签构造可展开区块。它是 HTML 直通能力在 GitHub 上的常见用法，不属于 GFM 规范语法。
+GitHub 官方把折叠区块列为高级格式能力，用 `<details>` 标记创建可展开区域；它本质是原始 HTML，不是 GFM 规范语法。
 
-T:折叠区块 | 源 GitHub Docs（HTML）  
+T:折叠区块 | 源 GitHub Docs（折叠区块）  
 预期 渲染为可折叠区块，默认收起 | 流行度 B
 
 <details>
@@ -189,19 +208,43 @@ Hidden content appears when expanded.
 
 </details>
 
+## HTML 上下标与下划线
+
+GitHub 通过原始 HTML 标签提供下标、上标与下划线，不属于 GFM 规范语法。
+
+T:下标 | 源 GitHub Docs（文本样式）  
+预期 文字显示为下标 | 流行度 B
+
+This is a <sub>subscript</sub> text.
+
+T:上标 | 源 GitHub Docs（文本样式）  
+预期 文字显示为上标 | 流行度 B
+
+This is a <sup>superscript</sup> text.
+
+T:下划线 | 源 GitHub Docs（文本样式）  
+预期 文字带下划线 | 流行度 C
+
+This is an <ins>underlined</ins> text.
+
 ## 颜色模型
 
-GitHub 会把十六进制、`rgb()`、`hsl()` 形式的颜色代码渲染为色块。这是平台层渲染，不属于 GFM 规范。
+GitHub 把反引号包裹的十六进制、`rgb()`、`hsl()` 颜色代码渲染为色块；反引号内不能有前导或尾随空格。据官方文档，色块可视化仅在问题、拉取请求与讨论中生效，`.md` 文件预览中通常不渲染。
 
-T:十六进制颜色 | 源 GitHub Docs（颜色）  
-预期 渲染为对应颜色的色块，或原样显示 | 流行度 C
+T:十六进制颜色 | 源 GitHub Docs（颜色模型）  
+预期 仅议题/PR/讨论中渲染为色块，.md 中通常原样显示 | 流行度 C
 
-The background color is #0969da in this sentence.
+The background color is `#0969DA` for light mode.
 
-T:RGB 与 HSL | 源 GitHub Docs（颜色）  
-预期 渲染为色块，或原样显示 | 流行度 D
+T:RGB 与 HSL | 源 GitHub Docs（颜色模型）  
+预期 仅议题/PR/讨论中渲染为色块，.md 中通常原样显示 | 流行度 D
 
-The colors rgb(9, 105, 218) and hsl(212, 92%, 45%) appear here.
+The colors `rgb(9, 105, 218)` and `hsl(212, 92%, 45%)` appear here.
+
+T:反引号内不可有空格 | 源 GitHub Docs（颜色模型）  
+预期 含前导或尾随空格则不渲染色块 | 流行度 D
+
+The color ` #0969DA ` has spaces and should not render as a swatch.
 
 ## 未闭合
 
