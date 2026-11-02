@@ -24,6 +24,21 @@
 - **归属裁决**：CommonMark 拥有核心语法；GFM 规范语法归 GitHub；数学、脚注、emoji 归 GitHub 而非 Pandoc；Pandoc 仅留独有扩展。
 - **仅声明存在、不产出测试文件**：MDX、R Markdown。二者需 JS 编译或 knitr 执行环境，裸渲染测试无意义。该声明写在本 skill，**不写入 `README.md`**（B4 白名单只允许子文件链接与基础语法样例）；如需就近说明，可放在 `04-other-dialects/` 测试文件的开头说明文字中。
 
+### B1.2 文件夹构成与分类关系
+
+| 维度 | 文件 | 分类 | 与其他文件的关系 |
+| --- | --- | --- | --- |
+| CommonMark | `cm-block`、`cm-inline` | 规范主体 | 覆盖块级与行内规则，是其余维度的基线 |
+| | `cm-edge` | 边界异常 | 只收 CommonMark 自身边界，不重复主体已覆盖项 |
+| | `cm-eof` | 吞噬型未闭合 | 集中放置会吞掉后续内容的构造；其余文件未闭合就近保留 |
+| GitHub | `gfm-ext` | GFM 规范扩展 | 只收规范内扩展，不含规范外特性 |
+| | `gfm-edge` | 差异对比 | 只比 GFM 与 CommonMark 的差异，不重复正常用例 |
+| | `gh-ext` | GitHub 非规范 | 收规范外、GitHub 支持的语法；与 Pandoc 重叠项归此，Pandoc 不重复 |
+| Pandoc | `pd-on-block`、`pd-on-inline`、`pd-on-table` | 默认开启 | 按块级 / 行内 / 表格分文件，只收 Pandoc 独有扩展 |
+| | `pd-off-block`、`pd-off-inline` | 默认关闭 | 同上，按块级 / 行内分文件 |
+| 编辑器特性 | `ef-critic`、`ef-toc-wikilinks` | 非 GitHub 约定 | 与 GitHub 维度互补，不重复 Alerts / Mermaid |
+| 其他方言 | `od-other` | 方言独有 | 只收 MMD / Extra / Kramdown 独有，不重复已归属语法 |
+
 ## B2 主要交付约束（硬性）
 
 `markdown-syntax-testset/` 是**唯一内容目录**，同时是主要交付物——测试文件只存在这一份，不设工作副本。该目录内只允许存在三类内容：

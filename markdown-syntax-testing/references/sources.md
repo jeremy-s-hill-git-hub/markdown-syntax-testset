@@ -28,12 +28,17 @@
 
 | 主题 | 参考来源 |
 | --- | --- |
-| Mermaid | mermaid.js.org 文档；GitHub Docs「Creating diagrams」 |
-| GitHub Alerts | GitHub Docs（Alerts 语法） |
+| GitHub 平台（基本写作） | `_sources/github-docs.txt`：标题、文本样式、引用、代码、颜色模型、链接、锚点、换行、图片、列表、任务列表、emoji、脚注、Alerts、HTML 直通 |
+| GitHub 平台（高级格式） | docs.github.com「使用高级格式」：表格、折叠区块、代码块、关系图、数学表达式、自动链接、附件、任务列表、永久链接、关键字 |
+| GitHub 数学表达式 | docs.github.com「编写数学表达式」：MathJax/LaTeX；行内用美元符（或美元符加反引号），行间用双美元符或 math 围栏 |
+| Mermaid | mermaid.js.org 文档；GitHub Docs「创建关系图」 |
+| GitHub Alerts | GitHub Docs（Alerts 语法），见 `github-docs.txt` |
 | CriticMarkup | criticmarkup.com |
 | MultiMarkdown | MultiMarkdown v6 规范 |
 | Markdown Extra | michelf.ca/projects/php-markdown/extra |
 | Kramdown | kramdown 规范 |
+
+**GitHub 文档边界**：基本写作页覆盖颜色模型（须反引号；色块仅在议题/PR/讨论中渲染，`.md` 通常不渲染）、Alerts、脚注、emoji 与 HTML 的 `sub`/`sup`/`ins`；高级格式页补充折叠区块（`<details>`）与数学表达式（MathJax，`.md` 中可渲染）。
 
 ## CommonMark 章节号
 
