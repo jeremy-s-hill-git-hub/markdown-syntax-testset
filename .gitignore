@@ -1,0 +1,16 @@
+# Obsidian 配置
+.obsidian/
+
+# 素材目录整体排除
+# 含规范网页另存件（约 3.2 MB）、网页资源目录（约 8 MB）、
+# 提取脚本与 SKILL 历史版本，均属可重新获取的中间产物。
+# 获取方式见 markdown-syntax-testing/references/sources.md，
+# 无法自行获取时按 references/agent-rules.md 的 A7 规则向用户请求。
+_sources/
+
+# 操作系统自动生成的临时文件
+# media/ 内含媒体文件，Windows 资源管理器浏览时会写 Thumbs.db，
+# 跨平台协作时 macOS 会写 .DS_Store。
+Thumbs.db
+desktop.ini
+.DS_Store
