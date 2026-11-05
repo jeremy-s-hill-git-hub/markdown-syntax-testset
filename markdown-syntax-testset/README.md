@@ -61,7 +61,7 @@ followed by a blank line.
 2. GitHub（GFM 规范与 GitHub 扩展）：gfm-* 收规范内扩展，gfm-edge 只做与 CommonMark 的差异对比，gh-ext 收规范外特性；三者互不重复。
    - [GFM 扩展](01-github/gfm-ext.md) — 表格、任务列表、删除线、自动链接、危险标签
    - [GFM 与 CommonMark 差异](01-github/gfm-edge.md) — 两个规范的判定差异
-   - [GitHub 非 GFM 扩展](01-github/gh-ext.md) — 数学、脚注、emoji、Alerts、Mermaid、details、颜色模型
+   - [GitHub 非 GFM 扩展](01-github/gh-ext.md) — 数学公式、脚注、Emoji、Alerts、Mermaid 图表、折叠区块、HTML 上下标与下划线、相对链接、颜色模型
 
 3. Pandoc：默认开启分块级、行内、表格，默认关闭分块级、行内；只收 Pandoc 独有扩展。
    - [默认开启的扩展·块级](02-pandoc/pd-on-block.md) — 元数据块、标题属性、围栏属性、div 与 span、行块

@@ -246,6 +246,30 @@ T:反引号内不可有空格 | 源 GitHub Docs（颜色模型）
 
 The color ` #0969DA ` has spaces and should not render as a swatch.
 
+## 相对链接
+
+GitHub 把相对链接解析为相对于当前文件的位置；以 `/` 开头则相对仓库根目录；`./` 与 `../` 均可使用。裸路径与 `./` 前缀解析结果相同。
+
+T:裸路径相对当前文件 | 源 GitHub Docs（相对链接）  
+预期 指向当前文件同目录下的 docs/…，或原样显示 | 流行度 B
+
+[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+
+T:点号前缀与裸路径等价 | 源 GitHub Docs（相对链接）  
+预期 与裸路径解析到同一位置 | 流行度 C
+
+[Explicit same directory](./docs/CONTRIBUTING.md)
+
+T:上级目录 | 源 GitHub Docs（相对链接）  
+预期 指向当前文件上一级 | 流行度 C
+
+[Parent directory](../README.md)
+
+T:斜杠开头指向仓库根 | 源 GitHub Docs（相对链接）  
+预期 指向仓库根目录，而非当前目录 | 流行度 B
+
+[Repository root](/README.md)
+
 ## 未闭合
 
 以下故意保持未闭合，用于观察是否吞掉后续内容；置于文件末尾，其后不得有任何内容。

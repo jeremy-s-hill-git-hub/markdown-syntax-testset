@@ -1,7 +1,7 @@
 ---
 name: markdown-syntax-testing
 description: "构建并维护 Markdown 语法支持范围测试样本集：面向目标编辑器，用裸露（不被代码块包裹）的语法片段肉眼判断 CommonMark / GitHub（GFM 规范与 GitHub 非规范扩展）/ Pandoc 及编辑器特性的支持情况。交付物兼具说明文档与测试文档双重身份。当需要为某个编辑器建立语法支持清单、为读者提供可读的语法样例、或修订既有测试样本集时使用。"
-version: "2.0.0"
+version: "2.1.0"
 ---
 
 # Markdown 语法测试样本集
